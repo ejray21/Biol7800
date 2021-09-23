@@ -1,7 +1,10 @@
 ---
 title: "hw_01"
-output: html_document
-editor_options: 
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+editor_options:
   chunk_output_type: inline
 ---
 
@@ -10,8 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
-
-My name is Emily Ray, I am from Cincinnati, OH. I got my undergraduate degree in Neuroscience and Marine Biology from the University of New Hampshire. Now I am a second year phD student in Karen Maruska's lab. I study maternal care and infanticide in a cichlid fish - basically I am trying to figure out how the brain tells a mother to either take care of or eat her babies. Outside of school, I like to read, run, and bike.
+### About Me
+My name is *Emily Ray*, I am from **Cincinnati, OH**. I got my undergraduate degree in Neuroscience and Marine Biology from the University of New Hampshire.  Now I am a second year phD student in Karen Maruska's lab. I study maternal care and infanticide in a cichlid fish - basically I am trying to figure out how the brain tells a mother to either take care of or eat her babies. Outside of school, I like to read, run, and bike.
 
 ```{bash}
 git --version
