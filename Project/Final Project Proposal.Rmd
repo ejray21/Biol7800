@@ -1,0 +1,26 @@
+---
+title: "Final Project Proposal"
+output: html_document
+---
+**Sensory and Neural Mechanisms of Offspring Recognition in Fishes**   
+Emily Ray  
+  
+**Background**   
+	Parental care is present across taxa and has evolved independently several times (1-2). Offspring recognition is critical for the maintenance of parental care behaviors, but which sensory signals are involved and where in the brain these signals are processed is largely unknown, especially in fishes, the oldest and most diverse group of vertebrates. The maternal mouthbrooding African cichlid fish *Astatotilapia burtoni* is an excellent model to investigate the mechanisms underlying offspring recognition. Females brood developing young in their mouths for about 14 days, then provide post-release maternal care by protecting young in their mouth when threatened (3-4). Because adult *A. burtoni* cannibalize fry, offspring recognition is critical for mothers to avoid maladaptively consuming their own young. The goal of my research is to identify the sensory signals and brain regions involved in *A. burtoni* offspring recognition. Understanding the mechanisms underlying offspring recognition in a model fish species will have implications for our understanding of the evolution of parental care and will give us insights into the abilitiy of cichlids to adapt to changing environmental conditions such as increasing turbidity.   
+	
+**Data Acquisition**  
+	To identify the sensory and neural mechanisms of offspring recognition in *A. burtoni*, I expose mothers to either only visual, only chemosensory, both visual and chemosensory, or no (control) stimuli from their fry. I then analyze the mother’s behavior using ToxTrac, an open source animal tracking software (5). I compare the speed, distance swam, and time spent associated with the stimulus delivery site across the treatment groups. Immediately following the behavior trial, I collect the brain from the focal fish and then perform antibody staining for pS6, a neural activation marker. I then quantify the number of pS6 stained cells in brain nuclei that have been implicated in social behavior and maternal care and compare activation across treatment groups. I have conducted 20 trials and will continue collecting data (about one behavior trial per week) for the remainder of the semester.   
+**Questions and Analysis**  
+**Which sensory signals are required for offspring recognition in _A. burtoni_?**  
+I will compare the speed, distance swam, and time spent in association with the stimulus delivery site across mothers that are exposed to no (control), only visual, only chemosensory, or both visual and chemosensory stimuli.  
+**Which brain nuclei are activated during offspring recognition in _A. burtoni_?**  
+I will compare neural activation shown by pS6 stained cells in different brain nuclei that have been implicated in maternal care and social recognition. I will quantify the number of pS6 stained cells in 10-12 brain regions and compare the number of stained cells across treatment groups.   
+
+**References**  
+1.	Reynolds, J.D., Goodwin, N.B., Freckleton, R.P. 2002. Evolutionary transitions in parental care and live bearing in vertebrates. Philosophical Transactions of the Royal Society B. 357: 269-281.   
+2.	Gilbert, J.D.J. and Manica, A. 2015. The evolution of parental care in insects: a test of current hypotheses. Evolution. 69(5): 1255-1270.  
+3.	Maruska, K.P., Fernald, R.D. 2018. Astatotilapia burtoni: a model system for analyzing the neurobiology of behavior. ACS Chemical Neuroscience. 9(8): 1951-1962.  
+4.	Renn, S.C.P., Carleton, J.B., Magee, H., Nguyen, M.L.T., Tanner, A.C.W. 2009. Maternal care and altered social phenotype in a recently collected stock of Astatotilapia burtoni cichlid fish. Integrative and Comparative Biology. 49(6): 660-673.  
+5.	Rodriguez, A., Zhang, H., Klaminder, J., Brodin, T., Andersson, P. L. and Andersson, M. 2018. ToxTrac: a fast and robust software for tracking organisms. Methods in Ecology and Evolution. 9(3):460–464.  
+
+
