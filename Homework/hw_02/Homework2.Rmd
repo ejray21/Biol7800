@@ -1,0 +1,51 @@
+---
+title: "hw_02"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Question 1*
+
+```{r}
+mtcars[mtcars$cyl < 6,]
+mtcars[-1:0, 1:3]
+mtcars[mtcars$cyl == 8, ]
+mtcars[mtcars$cyl ==  c(4,6), ]
+```
+
+*Question 2*
+
+```{r}
+x = (1:5)
+print(x)
+```
+There should be parentheses around the (1:5) so NA isn't generated
+
+*Question 3*
+The R syntax is (row, columns), so you need to include the columns in the function mtcars(1:15, )
+
+*Question 4*
+```{r}
+x = matrix(c(1:3, NA, 5:7, NA, NA), nrow = 3)
+x[is.na(x)] = 0
+print(x)
+```
+The first line of the code creates a matrix where 3 of the values are NA. The second line of code sets each of the NA values to 0, so when the matrix is printed each spot where an NA was returns a 0 instead.
+
+```{r}
+data("mtcars") ##get data
+?mtcars
+mpg2 <- 
+ifelse(mtcars$mpg < 16, "low", 
+ifelse(mtcars$mpg < 21, "low_intermediate",
+ifelse(mtcars$mpg < 26, "intermediate_high", "high")))
+##if less than 16, make mpg2 "low", if less than 21 but greater than 16, "low intermediate," if between 21 and 26, "intermediate high," everything above 26 is "high"
+mtcars <- data.frame(mtcars, mpg2) ### merge the mpg2 data with the mtcars data set
+head(mtcars)
+```
+
