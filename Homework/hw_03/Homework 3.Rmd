@@ -31,11 +31,11 @@ apply(X = x, MARGIN = c(1, 2),
 ```
 Now, use for loops to get the same task done (hint: nested loops). The results should be the same.
 ```{r}
-x = array(1:27, dim = c(3, 3, 3))
- for (i in 1:9){
-  print(matrix(paste(i, i+9, i+18, sep = ",")))
+x = matrix(nrow = 3, ncol = 3)
+for (i in 1:9){
+  x[j,k] = (paste(i, i+9, i+18, sep = ","))
 }
-
+x
 ```
 
 3. The Fibonacci Sequence is the series of numbers that the next number is the sum of the previous two numbers: 0, 1, 1, 2, 3, 5, 8 … Use a for loop to get the first 30 numbers of the Fibonacci Sequence. This question should demonstrate the need for loops because there is no easy way to use vectorized functions in this case.
