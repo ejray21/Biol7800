@@ -32,6 +32,9 @@ apply(X = x, MARGIN = c(1, 2),
 Now, use for loops to get the same task done (hint: nested loops). The results should be the same.
 ```{r}
 x = array(1:27, dim = c(3, 3, 3))
+ for (i in 1:9){
+  print(matrix(paste(i, i+9, i+18, sep = ",")))
+}
 
 ```
 
