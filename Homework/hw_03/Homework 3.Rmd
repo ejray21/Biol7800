@@ -1,29 +1,32 @@
 ---
 title: "Homework3"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-1. Suppose we have a dataset A (see code below) where each column represents multiple measures of nitrogen concentration in a particular lake. We want to get the average value for each lake. Do this in two ways: a for loop and a vectorized function colMeans().
+_1. Suppose we have a dataset A (see code below) where each column represents multiple measures of nitrogen concentration in a particular lake. We want to get the average value for each lake. Do this in two ways: a for loop and a vectorized function colMeans()._
 ```{r}
 set.seed(12) # to be reproducible
 A = matrix(data = runif(n = 1:500), nrow = 50, ncol = 10)
 colnames(A) = paste("lake", 1:10, sep = "_")
 
 ##First using a loop##
-print(colnames(A))
 for(i in 1:ncol(A)){
-  print(mean(A[ , i]))
+  lakemeans <-(mean(A[ , i]))
 } 
+# paste lake name and mean
+ print(paste(colnames(A), lakemeans, sep = " "))
  
 ##Now using colMeans##
 colMeans(A)
 ```
 
-2. From the for loop lecture, we see the following example of using apply():
+_2. From the for loop lecture, we see the following example of using apply():_
 ```{r}
 x = array(1:27, dim = c(3, 3, 3))
 apply(X = x, MARGIN = c(1, 2), 
@@ -31,21 +34,28 @@ apply(X = x, MARGIN = c(1, 2),
 ```
 Now, use for loops to get the same task done (hint: nested loops). The results should be the same.
 ```{r}
-x = matrix(nrow = 3, ncol = 3)
-for (i in 1:9){
-  x[j,k] = (paste(i, i+9, i+18, sep = ","))
-}
-x
+x = array(1:27, dim = c(3, 3, 3))
+#Create empty array to fill
+x.fill = array(dim = c(3, 3, 1))
+#for loop to pull the number from each location in the original array, then paste the numbers from the original 3 levels into one character 
+for (i in 1:3){
+  for (j in 1:3){
+    x.fill[i, j, ] = paste(x[i, j, 1], x[i, j, 2], x[i, j, 3], sep = ",")
+    final.array <- x.fill
+    }
+  }
+
+print(final.array)
 ```
 
 3. The Fibonacci Sequence is the series of numbers that the next number is the sum of the previous two numbers: 0, 1, 1, 2, 3, 5, 8 … Use a for loop to get the first 30 numbers of the Fibonacci Sequence. This question should demonstrate the need for loops because there is no easy way to use vectorized functions in this case.
 ```{r}
-
+#create a numeric variable
 fibonacci <- numeric(30)
-fibonacci[1] <- 1
-fibonacci[2] <- 1
+#create a for loop to add the previous two numbers together
+fibonacci[1] <- fibonacci[2] <- 1
 for (i in 3:30){
-  fibonacci[i] <- (i-1)+(i-2)
+  fibonacci[i] <- fibonacci[i-1]+ fibonacci[i-2]
 }
 print(fibonacci) 
 
@@ -55,7 +65,7 @@ print(fibonacci)
 ```{r}
 top105 = readLines("http://www.textfiles.com/music/ktop100.txt")
 top105 = top105[-c(64, 65)] # missing No. 54 and 55
-##use expresion from class ##
+##use expression from class ##
 N <- "^\\d\\.?\\d?\\d?\\.?"
 combine <- regexpr(N, top105)
 List <- regmatches(top105, combine)
@@ -69,5 +79,6 @@ sub(pattern = "\\.", replacement = "", x = List)
 ### Make numeric
 NumList <- as.numeric(List)
 ### Print duplicated numbers
+print('Duplicated numbers:')
 NumList[duplicated(NumList)]
 ```
