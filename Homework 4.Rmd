@@ -53,6 +53,7 @@ table %>%
   
 **4. (3 points) For the Topic column, split all values into words (hint: stringr::str_split()). Observe the values in the Topic column and use regular expression to specify the pattern in the stringr::str_split() or strsplit() function. Once this is done, you should get a list of list, you can use unlist() to convert it into a vector and name it as words. Use table() and sort() to find the top 5 most frequent words.**  
   
+  
 
 ```{r}
 topic_words <- unlist(str_split(table$Topic, boundary("word")))
