@@ -1,13 +1,18 @@
 ---
 title: "Homework 4"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
   
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
   
+  
+  
 **1.(3 points) Use the rvest R package to scrape the schedule and materials table into R from the course webpage (https://introdatasci.dlilab.com/schedule_materials/). Read the documentation of rvest so you get a better idea about the functions provided by rvest and their usages.**  
+  
 
 ```{r}
 library(rvest)
@@ -20,7 +25,9 @@ print(table)
 
 ```
   
+  
 **2. (2 points) With the extracted data frame, create two new columns based on the Date column: month and day. month would be the month abbrevations from the Date column; day would be the numeric numbers from the Date column. Although you can use whatever approach to get this done (do not enter them by hand…), I suggest you try to practice regular expression here (sub() or stringr::str_extract()).**  
+
 
 ```{r}
 library(stringr)
@@ -30,15 +37,22 @@ table <- data.frame(table, month, day)
 table
 ```
   
+  
 **3. (2 points) With the data frame generated from Q2, use group_by() and summarise() to find out the number of lectures for each month, order the results by the number of lectures (high to low).**  
+  
+  
 ```{r}
+library(dplyr)
 table %>%
 	group_by(month) %>%
 	summarise(lecture_count = n())%>%
 	arrange(desc(lecture_count))
 ```
   
+  
+  
 **4. (3 points) For the Topic column, split all values into words (hint: stringr::str_split()). Observe the values in the Topic column and use regular expression to specify the pattern in the stringr::str_split() or strsplit() function. Once this is done, you should get a list of list, you can use unlist() to convert it into a vector and name it as words. Use table() and sort() to find the top 5 most frequent words.**  
+  
 
 ```{r}
 topic_words <- unlist(str_split(table$Topic, boundary("word")))
