@@ -1,0 +1,46 @@
+---
+title: "hw_07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Question 1*
+
+I updated my folder names to make sure they are in numeric order. My folders for homeworks 5 and 6 had capital letters in their names which made them appear first.
+
+*Question 2*  
+
+Create an R package and push it to your Github account. You can name it whatever you want. In the package, put two functions that you have written or you want to write. If you don’t have such functions or ideas, try this: one function to remove rows with all 0s in the matrix generated below; and the other function to remove columns with all 0s. Name the first one as rm_0s_by_row() and the other as rm_0s_by_col().  
+```{r}
+set.seed(123)
+x = matrix(rpois(100, 0.1), 10, 10)
+  
+```
+
+```{r}
+## Remove rows that are all 0s
+rm_0s_by_row <- function(input_matrix) { 
+ no_0_matrix <- input_matrix[rowSums(input_matrix[])>0,]
+  return(no_0_matrix)}
+
+#The funtion computes the sum of each row and removes any rows where the sum is 0
+
+rm_0s_by_row(x)
+
+```
+
+```{r}
+## Remove columns that are all 0s
+rm_0s_by_col <- function(input_matrix) { 
+ no_0s_matrix <- input_matrix[, colSums(input_matrix !=0)]
+  return(no_0s_matrix)}
+
+### function removes any columns that have a sum of 0
+
+rm_0s_by_col(x)
+```
+
+  
