@@ -56,3 +56,13 @@ distance <- data$`distance 30 min (mm)`
 distance.plot <- ggplot(data, aes(x=treatment, y = distance, fill= treatment)) + geom_boxplot() + labs(y = "Total Distance Traveled (mm)", x = " ") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), panel.border = element_rect(colour = "black", fill=NA, size=0.5))
 distance.plot
 
+## Time in association zone ##
+AZ.time <- data$`visible time in AZ (s)`
+AZ.time.plot <- ggplot(data, aes(x=treatment, y = AZ.time, fill= treatment)) + geom_boxplot() + labs(y = "Time in Association Zone (s)", x = " ") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+AZ.time.plot
+
+##Association Index Plot ##
+AI.plot <- ggplot(data, aes(x=treatment, y = AI, fill= treatment)) + geom_boxplot() + labs(y = "Association Index", x = " ") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+AI.plot
+##Need to check this data for outliers ##
+
