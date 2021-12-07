@@ -1,8 +1,10 @@
 ## Import csv with data
 data <- POR_Master_Sheet
+treatment <- data$Treatment
 
 ## First compare standard length, mass, and condition factor across treatments
-## These should not be statistically different
+## These should not be statistically different because we want fish that are
+## about the same age and size and have the same body condition
 
 #Standard Length
 Standard.Length.Aov <- aov(data$`standard length (mm)`~ data$Treatment)
@@ -20,13 +22,29 @@ Condition.Factor.Aov <- aov(Condition.Factor~data$Treatment)
 summary(Condition.Factor.Aov)
 TukeyHSD(Condition.Factor.Aov)
 
+### Now making a table of the body mass, standard length, and condition factor
+library(tables)
+library(tidyr)
+##first subset to remove rows with na's
+data.table <- subset(data, !is.na(data$`mass (g)`))
+treatment.table <- (as.factor(data.table$Treatment))
+Body.Mass <- (data.table$`mass (g)`)
+Standard.Length <- (data.table$`standard length (mm)`)
+Condition.Factor <- na.omit(Condition.Factor)
+##create table
+body.stats.table <- tabular((treatment.table + 1) ~ (n=1) + Format(digits = 2)* (Body.Mass + Standard.Length + Condition.Factor)*(mean + sd), data.table)
+## Using booktabs to make the table look nice
+final.dissection.table <- booktabs(body.stats.table)
+final.dissection.table
+latex.dissection.table <- toLatex(body.stats.table)
+
 ##Comparing behaviors across treatment groups
 
 #distance traveled
 Distance.Traveled.Aov <- aov(data$`distance 30 min (mm)`~data$Treatment)
 summary(Distance.Traveled.Aov)
 TukeyHSD(Distance.Traveled.Aov)
-
+distance.f <- Distance.Traveled.Aov$
 
 #time in association zone
 AZ.time.Aov <- aov(data$`acclimation AZ time (s)`~data$Treatment)

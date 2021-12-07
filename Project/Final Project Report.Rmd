@@ -76,10 +76,38 @@ Slide were visualized on a Nikon Eclipse Ni microscope and images were taken usi
 We quantified 3 brain nuclei that are implicated in maternal care and social behavior: subdivisions 4 and 5 of the central dorsal telencephalon (Dc-4, Dc-5) and the periventricular posterior tuberculum (TPp).
 
 **Statistical Analysis**   
-All analysis was performed in R 4.1.0 (REF).
+All analysis was performed in R 4.1.0 (REF). Code for analysis and raw data can be accessed at (INSERT GITHUB LINK)
 
 ## Results
 
+Females across all treatment groups had similar body masses, standard lengths, and condition factors ().
+
+**Behavior**
+
+Females exposed to only chemosensory stimuli showed a trend toward swimming farther distances than females exposed to only visual, multimodal, or no stimuli (INSERT F VALUE, INSERT FIGURE REFERENCE). To quantify changes in females' association with the stimulus delivery site before and after stimulus delivery, we created an association index. Females exposed to only visual or multimodal stimuli showed a trend toward increasing their association with fry stimuli while females exposed to only chemosensory stimuli did not show the same trend (INSERT F VALUE, INSERT FIGURE REFERENCE).
+
+FIGURE 1 (Distance)
+FIGURE 2 (AI)
+
+**Brain Activation Patterns**
+Females exposed to multimodal stimuli had greater activation in subdivision 4 of the central dorsal telencephalon (Dc-4) compared to females exposed to unimodal or no stimuli and in subdivision 5 of the central dorsal telencephalon (Dc-5) compared to females exposed to no stimuli. In the periventricular posterior tuberculum (TPp), mouthbrooders exposed to multimodal stimuli showed greater neural activation than females exposed to unimodal or no stimuli (see Table 2 for post hoc results). 
+
+Figure 3 (Dc-4)
+Figure 4 (Dc-5)
+Figure 5 (TPp)
+
+
 ## Discussion
+
+In behavior trials, females exposed to only chemosensory stimuli from their fry showed a trend toward swimming farther than females exposed to no stimuli, only visual stimuli, or multimodal stimuli. In contrast, females exposed to either only visual or multimodal stimuli showed a trend toward increasing their association with the stimulus delivery site in response to the stimulus, while females exposed to only chemosensory stimuli did not exhibit this same trend. These trends could suggest that while chemosensory stimuli is enough to initiate searching behaviors, shown by an increase in distance swam, chemosensory stimuli alone is not sufficient for correct fry location, shown by an increase in time spent with the stimulus delivery site. The West African cichlid *Pelvicachromis pulcher* similarly requires visual information for the maitenance of parental care [@RN28] while fry of the more evolutionarily distant South African cichlid *Amphilophus citrinellus* can recognize parents from chemosensory signals alone [@RN29]. However, both these cichlid species are substrate brooders and thus parent-offspring recognition evolved in these species under different conditions than in mouthbrooding *A. burtoni*. 
+
+Different sensory signals from fry resulted in different brain activation patterns in mouthbrooding *A. burtoni*. While brain regions associated with kin recognition have been identified in zebrafish [@RN30], to our knowledge this is the first study to identify the neural correlates of parent-offspring recognition in a fish. Females exposed to multimodal stimuli had greater neural activation, shown by greater pS6 stained cell density, compared to females that received no stimuli in Dc-4 and Dc-5 and compared to females that received unimodal stimuli in Dc-4. Previous work has identified Dc-5 as being implicated in maternal care in *A. burtoni* [@RN18], suggesting it may be important for recognition of offspring and maitanence of maternal behaviors. WHile there is not yet consensus on the mammalian homologue for the central dorsal telencephalon, some evidence suggests it may be homologous to the mammalian neocortex [@RN31, @RN32]. The mammalian neocortex is involved in functions such as motor control, sensory processing, and spatial reasoning, all of which are important functions for identification and location of offspring.
+
+In the TPp, females that received multimodal stimuli had greater activation than females that received no stimuli or unimodal stimuli. The TPp has previously been implicated in *A. burtoni* maternal care [@RN18] and is thought to be part of the teleost social decision making network (SDMN) [@RN33]. The social decision making network is made up of the social behavior network and the mesolimbic reward system and contains conserved nuclei that are though to faciliate social behaviors across vertebrates [@RN33]. The TPp is likely homologous to the mammalian ventral tegmental area (VTA) [@RN34]. Dopaminergic cells in the VTA have been implicated in rodent pup retrieval during maternal care [@RN20, @RN22] and dopamine cells are present in the TPp [@RN35], though whether dopamine in the TPp is conserved to faciliate fry retrieval in teleost fish is unkown.
+
+As we continue this experiment, we will continue to collect behavioral and neural activation data from mothers, and collect behavioral and neural activation data from fry that are exposed to the same suite of stimuli from their mothers. As neural activation data from more nuclei are collected, we will perform multivariate analyses (e.g. PCA, differential function analysis) to identify networks of nuclei that are important for *A. burtoni* parent offspring recognition. 
+
+## Conclusions
+Here, we identify three brain regions implicated in offspring recognition in a model mouthbrooding cichlid fish. To our knowledge, this is the first study to identify the neural mechanisms underlying parent-offspring recognition in a mouthbrooding fish. Because fishes are the oldest and largest group of vertebrates, identifying these mechanisms is important for our understanding of the evolution of parental care across vertebrates. Further, understanding the functions of teleost brain regions can aid in identifying brain homologies between fishes and other vertebrates. Because parental care is critical for species persistence, understanding how it is regulated in a model cichlid species is important for conservation efforts as we can better predict how parental care will be impacted by changing environmental conditions, such as pollution, warming, turbidity, and extreme weather, that may impact cichlids' ability to send and receive sensory signals. 
 
 # References
