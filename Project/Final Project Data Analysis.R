@@ -53,13 +53,27 @@ TukeyHSD(AZ.time.Aov)
 
 ## I use an association index because multiple behaviors could be indicative of the fish's response
 
-#here I am multiplying the time spent in the association zone by the speed
 
-AI <- (data$`visible time in AZ (s)`* data$`toxtrac velocity 30 min (mm/s)`)
+## get association index for first 10 mins of trial
+AI <- (data$`hand calculated time in AZ first ten mins (s)`* data$`association score first 10 mins`)
 AI.Aov <- aov(AI~data$Treatment)
 Summary(AI.Aov)
 TukeyHSD(AI.Aov)
 
+## now get association index for the pretrial 10 min (before stimulus delivery)
+Acc.AI <- (data$`acclimation AZ time (s)`*data$`acclimation association score`)
+Acc.AI.Aov <- aov(Acc.AI~data$Treatment)
+Summary(Acc.AI.Aov)
+TukeyHSD(Acc.AI.Aov)
+## There shouldn't be any differences here since no stimulus was delivered yet
+
+## Now calculating the percent change in the AI from before stimulus delivery to after
+Percent.Change.Ai <- ((AI-Acc.AI)/Acc.AI)
+Percent.Change.AI <- na.omit(Percent.Change.Ai)
+library(dplyr)
+data.Ai.change <- data %>% filter(!is.na(Percent.Change.Ai))
+df <- data.Ai.change[!is.infinite(rowSums(Percent.Change.AI)),]
+Per.Change.AI.Aov <- aov(Percent.Change.AI~data.Ai.change$Treatment)
 
 ### Making graphs ###
 treatment <- factor(data$Treatment, levels=c("Control", "Chemosensory", "Visual", "C + V"))
@@ -71,7 +85,8 @@ condition.factor.plot
 
 ## Distance Traveled Plot ##
 distance <- data$`distance 30 min (mm)`
-distance.plot <- ggplot(data, aes(x=treatment, y = distance, fill= treatment)) + geom_boxplot() + labs(y = "Total Distance Traveled (mm)", x = " ") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+distance.plot <- ggplot(data, aes(x=treatment, y = distance, fill= treatment)) + geom_boxplot() + labs(y = "Total Distance Traveled (mm)", x = " ") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), panel.border = element_rect(colour = "black", fill=NA, size=0.5))+
+  geom_jitter(color="black", size=0.4, alpha=0.9)
 distance.plot
 
 ## Time in association zone ##
@@ -82,5 +97,23 @@ AZ.time.plot
 ##Association Index Plot ##
 AI.plot <- ggplot(data, aes(x=treatment, y = AI, fill= treatment)) + geom_boxplot() + labs(y = "Association Index", x = " ") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), panel.border = element_rect(colour = "black", fill=NA, size=0.5))
 AI.plot
-##Need to check this data for outliers ##
 
+##DC 5 Plot ##
+data.dc <- data %>% filter(!is.na(data$`dc-5 cell count`))
+treatment <- factor(data.dc$Treatment, levels=c("Control", "Chemosensory", "Visual", "C + V"))
+dc5.plot <- ggplot(data.dc, aes(x=treatment, y = data.dc$`dc-5 cell count`, fill= treatment)) + geom_boxplot() + labs(y= expression(paste('pS6 Stained Cells/', mu,~m^2)), x = ' ')+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), panel.border = element_rect(colour = "black", fill=NA, size=0.5))+
+  geom_jitter(color="black", size=0.4, alpha=0.9)+ ylim(0,0.0008)
+dc5.plot
+
+##DC 4 Plot##
+dc4.plot <- ggplot(data.dc, aes(x=treatment, y = data.dc$`dc-4 cell count`, fill= treatment)) + geom_boxplot() + labs(y= expression(paste('pS6 Stained Cells/', mu,~m^2)), x = ' ')+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), panel.border = element_rect(colour = "black", fill=NA, size=0.5))+
+  geom_jitter(color="black", size=0.4, alpha=0.9)+ ylim(0,0.0009) 
+dc4.plot
+
+##TPp Plot
+data.tpp <- data %>% filter(!is.na(data$`tpp cell count`))
+tpp <- data.tpp$`tpp cell count`
+treatment <- factor(data.tpp$Treatment, levels=c("Control", "Chemosensory", "Visual", "C + V"))
+tpp.plot <- ggplot(data.tpp, aes(x=treatment, y = tpp, fill= treatment)) + geom_boxplot() + labs(y= expression(paste('pS6 Stained Cells/', mu,~m^2)), x = ' ')+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), panel.border = element_rect(colour = "black", fill=NA, size=0.5))+
+  geom_jitter(color="black", size=0.4, alpha=0.9)+ ylim(0, 0.00125)
+tpp.plot

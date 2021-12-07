@@ -32,6 +32,30 @@ links-as-notes: true
 notes-after-punctuation: false
 ---
 
+```{r knitr_options, echo=FALSE}
+library(knitr)
+# rstudio will set the folder where .Rmd file seats as work directory
+# set it back to the folder where .Rproj seats
+opts_knit$set(root.dir = normalizePath("../")) 
+opts_chunk$set(fig.align = 'center', cache = FALSE, warning = FALSE,
+  message = TRUE, echo = FALSE, fig.pos = "H", out.extra = "")
+options(digits = 3, width = 88,
+        # use pdf file automatically when compile to pdf
+        knitr.graphics.auto_pdf = TRUE, 
+        knitr.kable.NA = '')
+# download template files if not available
+tpl_1 = 'https://raw.githubusercontent.com/daijiang/workflow_demo/master/Doc/template/preamble.tex'
+tpl_2 = 'https://raw.githubusercontent.com/daijiang/workflow_demo/master/Doc/template/doc_prefix.tex'
+tpl_3 = 'https://raw.githubusercontent.com/daijiang/workflow_demo/master/Doc/template/nature_style.docx'
+# bib_1 = 'https://raw.githubusercontent.com/daijiang/workflow_demo/master/template/ref.bib'
+# change directory accordingly
+
+if(knitr::is_latex_output() | knitr::is_html_output()){
+  library(kableExtra)
+} else {
+  options(kableExtra.auto_format = FALSE) # for docx
+}
+```
 
 \footnotesize 
 
@@ -84,9 +108,14 @@ Females across all treatment groups had similar body masses, standard lengths, a
 
 **Behavior**
 
-Females exposed to only chemosensory stimuli showed a trend toward swimming farther distances than females exposed to only visual, multimodal, or no stimuli (INSERT F VALUE, INSERT FIGURE REFERENCE). To quantify changes in females' association with the stimulus delivery site before and after stimulus delivery, we created an association index. Females exposed to only visual or multimodal stimuli showed a trend toward increasing their association with fry stimuli while females exposed to only chemosensory stimuli did not show the same trend (INSERT F VALUE, INSERT FIGURE REFERENCE).
+Females exposed to only chemosensory stimuli showed a trend toward swimming farther distances than females exposed to only visual, multimodal, or no stimuli \@ref(fig:fig1). To quantify changes in females' association with the stimulus delivery site before and after stimulus delivery, we created an association index. Females exposed to only visual or multimodal stimuli showed a trend toward increasing their association with fry stimuli while females exposed to only chemosensory stimuli did not show the same trend (INSERT F VALUE, INSERT FIGURE REFERENCE).
 
-FIGURE 1 (Distance)
+(ref:captionFig1) Distance swam by females exposed to each sensory stimulus. Females exposed to only chemosensory stimuli showed a trend toward swimming more than females that received only visual or multimodal stimuli (p > 0.05). Boxes extend to the furthest data points of the first and third quartiles. Data median is represented by a solid line. Whiskers extend to the furthest data point within 1.5x the interquartile range. Outliers beyond 1.5x the interquartile range are represented by solid circles and are not reflective of statistical outliers.
+
+```{r fig1, out.width='70%', fig.cap="(ref:captionFig1)"}
+knitr::include_graphics(path = "C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/Figs/Figure1_Ray_FinalReport.png")
+```
+
 FIGURE 2 (AI)
 
 **Brain Activation Patterns**
