@@ -1,4 +1,4 @@
-## Import csv with data
+## Import csv with data, then name csv as "data" and treatment groups as "treatment" to make codes easier
 data <- POR_Master_Sheet
 treatment <- data$Treatment
 
@@ -6,18 +6,20 @@ treatment <- data$Treatment
 ## These should not be statistically different because we want fish that are
 ## about the same age and size and have the same body condition
 
-#Standard Length
+#Standard Length anova and tukey
 Standard.Length.Aov <- aov(data$`standard length (mm)`~ data$Treatment)
 summary(Standard.Length.Aov)
 TukeyHSD(Standard.Length.Aov)
 
-#Body Mass
+#Body Mass anova and tukey
 Body.Mass.Aov <- aov(data$`mass (g)`~data$Treatment)
 summary(Body.Mass.Aov)
 TukeyHSD(Body.Mass.Aov)
 
 #Condition Factor
+## First calculate condition factor
 Condition.Factor <- 100*(data$`mass (g)`/ (data$`standard length (mm)`^3))
+##Condition factor anova and tukey
 Condition.Factor.Aov <- aov(Condition.Factor~data$Treatment)
 summary(Condition.Factor.Aov)
 TukeyHSD(Condition.Factor.Aov)
@@ -35,15 +37,15 @@ Condition.Factor <- na.omit(Condition.Factor)
 body.stats.table <- tabular((treatment + 1) ~ (n=1) + Format(digits = 2)* (Body.Mass + Standard.Length + Condition.Factor)*(mean + sd), data.table)
 body.stats.table
 
-##Comparing behaviors across treatment groups
+##Comparing behaviors across treatment groups, exploring different relationships, not all of these will be relevant
 
-#distance traveled
+#distance traveled anova and tukey
 Distance.Traveled.Aov <- aov(data$`distance 30 min (mm)`~data$Treatment)
 summary(Distance.Traveled.Aov)
 TukeyHSD(Distance.Traveled.Aov)
 
 
-#time in association zone
+#time in association zone anova and tukey
 AZ.time.Aov <- aov(data$`acclimation AZ time (s)`~data$Treatment)
 summary(AZ.time.Aov)
 TukeyHSD(AZ.time.Aov)
@@ -53,6 +55,7 @@ TukeyHSD(AZ.time.Aov)
 
 ## get association index for first 10 mins of trial
 AI <- (data$`hand calculated time in AZ first ten mins (s)`* data$`association score first 10 mins`)
+## Association index anova and tukey
 Ai.Aov <- aov(AI~data$Treatment)
 summary(Ai.Aov)
 TukeyHSD(Ai.Aov)
@@ -60,6 +63,7 @@ TukeyHSD(Ai.Aov)
 
 ## now get association index for the pretrial 10 min (before stimulus delivery)
 Acc.AI <- (data$`acclimation AZ time (s)`*data$`acclimation association score`)
+##Anova and tukey
 Acc.AI.Aov <- aov(Acc.AI~data$Treatment)
 summary(Acc.AI.Aov)
 TukeyHSD(Acc.AI.Aov)
@@ -67,6 +71,7 @@ TukeyHSD(Acc.AI.Aov)
 
 
 ### Making graphs ###
+##Convert the treatment groups to factors
 treatment <- factor(data$Treatment, levels=c("Control", "Chemosensory", "Visual", "C + V"))
 library(ggplot2)
 
@@ -94,8 +99,11 @@ AI.plot
 
 ##DC 5 Anova ##
 ##First filter data so only rows that have values for the dc4 and 5 are present
+## Dc4 and 5 are right next to each other, so any animals with data for one will
+## also have data for the other
 data.dc <- data %>% filter(!is.na(data$`dc-5 cell count`))
 treatment <- factor(data.dc$Treatment, levels=c("Control", "Chemosensory", "Visual", "C + V"))
+#anova and tukey
 dc5.aov <- aov(data.dc$`dc-5 cell count`~treatment)
 summary(dc5.aov)
 TukeyHSD(dc5.aov)
@@ -120,6 +128,7 @@ dc4.plot
 data.tpp <- data %>% filter(!is.na(data$`tpp cell count`))
 tpp <- data.tpp$`tpp cell count`
 treatment <- factor(data.tpp$Treatment, levels=c("Control", "Chemosensory", "Visual", "C + V"))
+## anova and tukey
 tpp.aov <- aov(tpp~treatment)
 summary (tpp.aov)
 TukeyHSD(tpp.aov)
