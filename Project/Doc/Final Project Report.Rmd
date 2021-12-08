@@ -87,7 +87,7 @@ The goal of this study was to determine the relative importance of visual and ch
 *Astatotilapia burtoni* derived from a wild-caught stock from Lake Tanganyika, Africa were laboratory raised under conditions similar to their natural environment. (~28 °C, pH 8.0, 12-h light/12-h dark cycle). Fish were fed cichlid flakes (AquaDine, Healdsburg, CA, USA) daily and brine shrimp (Sally's Frozen Brine Shrimp, San Francisco, CA, USA) twice weekly. Prior to experiments, fish were housed in mixed sex groups in aquaria with gravel, halved terracotta pots to serve as shelters, and several dominant males. All experimental protocols were approved by the Institutional Animal Care and Use Committee (IACUC) at Louisiana State University, Baton Rouge, LA, and were in accordance with the guidelines set by the National Institutes of Health (NIH) Guide for the Care and Use of Laboratory Animals, 2011.
 
 **Experimental Procedures**  
-To determine the relative importance of visual and chemosensory signals in *A. burtoni* offspring recognition, we compared the behavior of mouthbrooding females on the day of fry release when exposed to either 1) only visual 2)only chemosensory 3) both visual and chemosensory or 4) no stimuli from their fry (N = 5 per condition). To obtain chemosensory stimuli, 12 fry were soaked in 250 mL of reverse osmosis filtered water for 3 hours. The fry were then removed from the water, and the water was delivered to the focal female at the start of the behavior trial via a gravity fed system with a flow rate of 3.47 mL $s^{-1}$. Visual stimuli was the focal female's fry, visible through a clear, acrylic barrier. Behavior trials were recorded for 30 minutes and behavior was quantified using ToxTrac animal tracking software [@RN16]. An association index was calculated for each animal by determining the visual field of the focal animal every three minutes of the trial. If the visual field included the stimulus delivery site, the animal was scored as 1, if it did not include the stimulus delivery site, it was scored as 0. The cumulative score became the "association score." This association score was then multiplied by the number of seconds in the association zone during the first 10 minutes of the trial. This product was then the "association index."
+To determine the relative importance of visual and chemosensory signals in *A. burtoni* offspring recognition, we compared the behavior of mouthbrooding females on the day of fry release when exposed to either 1) only visual 2)only chemosensory 3) both visual and chemosensory (C+V) or 4) no stimuli from their fry (N = 5 per condition). To obtain chemosensory stimuli, 12 fry were soaked in 250 mL of reverse osmosis filtered water for 3 hours. The fry were then removed from the water, and the water was delivered to the focal female at the start of the behavior trial via a gravity fed system with a flow rate of 3.47 mL $s^{-1}$. Visual stimuli was the focal female's fry, visible through a clear, acrylic barrier. Behavior trials were recorded for 30 minutes and behavior was quantified using ToxTrac animal tracking software [@RN16]. An association index was calculated for each animal by determining the visual field of the focal animal every three minutes of the trial. If the visual field included the stimulus delivery site, the animal was scored as 1, if it did not include the stimulus delivery site, it was scored as 0. The cumulative score became the "association score." This association score was then multiplied by the number of seconds in the association zone during the first 10 minutes of the trial. This product was then the "association index."
 
 Immediately following behavior trials, the focal female's standard length (SL) and body mass (BM) were recorded. Each females' condition factor was calculated following the standard condition factor formula: $CF = (W/L^3)*100$. Females were sacrificed via rapid cervical transection. Ovaries were removed and weighed to calculate gonadosomatic index (GSI). Brains were exposed and heads were fixed in 4% paraformaldehyde at 4°C for 24 h. Heads were then transferred to 1x phosphate buffered saline (PBS) and rinsed for ~ 24 h at 4°C. Brains were cryoprotected in 30% sucrose made in 1x PBS for 24 h at 4°C, embedded in optimal cutting temperature (OCT) media and sectioned in the transverse plane at 20 µm using a cryostat (Cryostar NX50), then collected on alternate sets of charged slides (VWR, Superfrost) and stored at -80°C until staining. 
 
@@ -113,7 +113,7 @@ Females across all treatment groups had similar body masses, standard lengths, a
 
 Table 1.  Summary of anovas comparing mass, standard length, and condition factors between treatment groups.
 ```{r echo=FALSE, fig.cap="(ref:Table1Cap)",results='astable',warning=F,message=F}
-data <- read.csv("C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/POR Master Sheet.csv")
+data <- read.csv("C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/Data/POR Master Sheet.csv")
 print("Body Mass")
 Body.Mass.Aov <- aov(data$mass..g.~data$Treatment)
 summary(Body.Mass.Aov)
@@ -129,7 +129,7 @@ summary(Condition.Factor.Aov)
 Table 2. Body Mass, Standard Length, and Condition Factor of females in each treatment group. 
 
 ```{r echo=F,results='asis',warning=F,message=F}
-data <- read.csv("C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/POR Master Sheet.csv")
+data <- read.csv("C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/Data/POR Master Sheet.csv")
 library(tables)
 library(tidyr)
 options(scipen = 1)
@@ -177,7 +177,7 @@ Females exposed to multimodal stimuli showed a trend toward greater activation i
 
 Table 4. Anova and post-hoc results for brain activation data.
 ```{r echo = FALSE, results='astable',warning=F,message=F}
-data <- read.csv("C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/POR Master Sheet.csv")
+data <- read.csv("C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/Data/POR Master Sheet.csv")
 library(dplyr)
 print("Dc-4")
 data.dc <- data %>% filter(!is.na(data$dc.5.cell.count))
