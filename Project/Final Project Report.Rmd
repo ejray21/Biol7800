@@ -87,7 +87,7 @@ The goal of this study was to determine the relative importance of visual and ch
 *Astatotilapia burtoni* derived from a wild-caught stock from Lake Tanganyka, Africa were laboratory raised under conditions similar to their natural environment. (~28 °C, pH 8.0, 12-h light/12-h dark cycle). Fish were fed cichlid flakes (AquaDine, Healdsburg, CA, USA) daily and brine shrimp (Sally's Frozen Brine Shrimp, San Francisco, CA, USA) twice weekly. Prior to experiments, fish were housed in mixed sex groups in aquaria with gravel, halved terracotta pots to serve as shelters, and several dominant males. All experimental protocols were approved by the Institutional Animal Care and Use Committee (IACUC) at Louisiana State University, Baton Rouge, LA, and were in accordance with the guidelines set by the National Institutes of Health (NIH) Guide for the Care and Use of Laboratory Animals, 2011.
 
 **Experimental Procedures**  
-To determine the relative importance of visual and chemosensory signals in *A. burtoni* offspring recognition, we compared the behavior of mouthbrooding females on the day of fry release when exposed to either 1) only visual 2)only chemosensory 3) both visual and chemosensory or 4) no stimuli from their fry (N = 5 per condition). To obtain chemosensory stimuli, 12 fry were soaked in 250 mL of reverse osmosis filtered water for 3 hours. The fry were then removed from the water, and the water was delivered to the focal female at the start of the behavior trial via a gravity fed system with a flow rate of 3.47 mL s^-1. Visual stimuli was the focal female's fry, visible through a clear, acrylic barrier. Behavior trials were recorded for 30 minutes and behavior was quantified using ToxTrac animal tracking software (@RN16). 
+To determine the relative importance of visual and chemosensory signals in *A. burtoni* offspring recognition, we compared the behavior of mouthbrooding females on the day of fry release when exposed to either 1) only visual 2)only chemosensory 3) both visual and chemosensory or 4) no stimuli from their fry (N = 5 per condition). To obtain chemosensory stimuli, 12 fry were soaked in 250 mL of reverse osmosis filtered water for 3 hours. The fry were then removed from the water, and the water was delivered to the focal female at the start of the behavior trial via a gravity fed system with a flow rate of 3.47 mL s^-1. Visual stimuli was the focal female's fry, visible through a clear, acrylic barrier. Behavior trials were recorded for 30 minutes and behavior was quantified using ToxTrac animal tracking software (@RN16). An association index was calculated for each animal by determining the visual field of the focal animal every three minutes of the trial. If the visual field included the stimulus delivery site, the animal was scored as 1, if it did not include the stimulus delivery site, it was scored as 0. The cumulative score became the "association score." This association score was then multiplied by the number of seconds in the association zone during the first 10 minutes of the trial. This product was then the "association index."
 
 Immediately following behavior trials, the focal female's standard length (SL) and body mass (BM) were recorded. Females were sacrificed via rapid cervical transections. Ovaries were removed and weighted to calculate gonadosomatic index (GSI). Brains were exposed and heads were fixed in 4% paraformaldehyde at 4°C for 24 h. Heads were then transferred to 1x phosphate buffered saline (PBS) and rinsed for ~ 24 h at 4°C. Brains were cryoprotected in 30% sucrose made in 1x PBS for 24 h at 4°C, embedded in optimal cutting temperature (OCT) media and sectioned in the transverse plane at 20 µm using a cryostat (Cryostar NX50), then collected on alternate sets of charged slides (VWR, Superfrost) and stored at -80°C until staining. 
 
@@ -100,31 +100,49 @@ Slide were visualized on a Nikon Eclipse Ni microscope and images were taken usi
 We quantified 3 brain nuclei that are implicated in maternal care and social behavior: subdivisions 4 and 5 of the central dorsal telencephalon (Dc-4, Dc-5) and the periventricular posterior tuberculum (TPp).
 
 **Statistical Analysis**   
-All analysis was performed in R 4.1.0 (REF). Code for analysis and raw data can be accessed at (INSERT GITHUB LINK)
+All analysis was performed in R 4.1.0 [@RN36}. Code for analysis and raw data can be accessed at https://github.com/ejray21/Biol7800/tree/main/Project. 
 
 ## Results
 
-Females across all treatment groups had similar body masses, standard lengths, and condition factors ().
+Females across all treatment groups had similar body masses, standard lengths, and condition factors (F 3,15 = 0.73, 0.54, 0.21). 
+
 
 **Behavior**
 
-Females exposed to only chemosensory stimuli showed a trend toward swimming farther distances than females exposed to only visual, multimodal, or no stimuli \@ref(fig:fig1). To quantify changes in females' association with the stimulus delivery site before and after stimulus delivery, we created an association index. Females exposed to only visual or multimodal stimuli showed a trend toward increasing their association with fry stimuli while females exposed to only chemosensory stimuli did not show the same trend (INSERT F VALUE, INSERT FIGURE REFERENCE).
+Females exposed to only chemosensory stimuli showed a trend toward swimming farther distances than females exposed to only visual, multimodal, or no stimuli (F3,16 = 0.59, p = 0.63, N = 5 fish per group, Figure /@ref(fig:fig1)). To score the female's association with the stimulus delivery site, we created an association index. Females exposed to only visual stimuli or multimodal stimuli showed a trend toward a greater association index than females exposed to only chemosensory stimuli (F3,16 = 0.72, p = 0.56, N = 5, Figure /@ref(fig:fig2)).
 
-(ref:captionFig1) Distance swam by females exposed to each sensory stimulus. Females exposed to only chemosensory stimuli showed a trend toward swimming more than females that received only visual or multimodal stimuli (p > 0.05). Boxes extend to the furthest data points of the first and third quartiles. Data median is represented by a solid line. Whiskers extend to the furthest data point within 1.5x the interquartile range. Outliers beyond 1.5x the interquartile range are represented by solid circles and are not reflective of statistical outliers.
+(ref:captionFig1) *Distance swam by females exposed to each sensory stimulus.* Females exposed to only chemosensory stimuli showed a trend toward swimming more than females that received only visual or multimodal stimuli. F3,16 = 0.59, p = 0.63, N = 5 for all groups. Boxes extend to the furthest data points of the first and third quartiles. Data median is represented by a solid line. Whiskers extend to the furthest data point within 1.5x the interquartile range. Outliers beyond 1.5x the interquartile range are represented by solid circles and are not reflective of statistical outliers.
 
 ```{r fig1, out.width='70%', fig.cap="(ref:captionFig1)"}
 knitr::include_graphics(path = "C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/Figs/Figure1_Ray_FinalReport.png")
 ```
 
-FIGURE 2 (AI)
+(ref:captionFig2) *Association index of females exposed to each set of sensory stimuli.* Females that received only chemosensory stimuli showed a trend toward a lower associaton index compared to females that received only visual stimuli or multimodal stimuli. F3,16 = 0.72, p = 0.56, N = 5 for all groups. Boxes extend to the furthest data points of the first and third quartiles. Data median is represented by a solid line. Whiskers extend to the furthest data point within 1.5x the interquartile range. Outliers beyond 1.5x the interquartile range are represented by solid circles and are not reflective of statistical outliers.
+
+```{r fig2, out.width='70%', fig.cap="(ref:captionFig2)"}
+knitr::include_graphics(path = "C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/Figs/Fig2_AI_final report.png")
+```
 
 **Brain Activation Patterns**
-Females exposed to multimodal stimuli had greater activation in subdivision 4 of the central dorsal telencephalon (Dc-4) compared to females exposed to unimodal or no stimuli and in subdivision 5 of the central dorsal telencephalon (Dc-5) compared to females exposed to no stimuli. In the periventricular posterior tuberculum (TPp), mouthbrooders exposed to multimodal stimuli showed greater neural activation than females exposed to unimodal or no stimuli (see Table 2 for post hoc results). 
+Females exposed to multimodal stimuli had greater activation in subdivision 4 of the central dorsal telencephalon (Dc-4) compared to females exposed to unimodal or no stimuli (F3,9 = 3.9, p = 0.049, n = 3, Figure /@ref(fig:fig3)) and in subdivision 5 of the central dorsal telencephalon (Dc-5) compared to females exposed to no stimuli (F3,9 = 8.62, p = 0.0052, n = 3, Figure /@ref(fig:fig4)). In the periventricular posterior tuberculum (TPp), mouthbrooders exposed to multimodal stimuli showed greater neural activation than females exposed to unimodal or no stimuli (F3,8 = 9.99, p = 0.0044, n = 3, Figure /@ref(fig:fig5)). 
 
-Figure 3 (Dc-4)
-Figure 4 (Dc-5)
-Figure 5 (TPp)
+(ref:captionFig3) Neural activation in subdivision 4 of the central dorsal telencephalon (Dc-4). Females exposed to multimodal stimuli had greater activation compared to females exposed to no stimuli or multimodal stimuli. N = 3 for all groups. Boxes extend to the furthest data points of the first and third quartiles. Data median is represented by a solid line. Whiskers extend to the furthest data point within 1.5x the interquartile range. Outliers beyond 1.5x the interquartile range are represented by solid circles and are not reflective of statistical outliers.
 
+```{r fig3, out.width='70%', fig.cap="(ref:captionFig3)"}
+knitr::include_graphics(path = "C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/Figs/fig3_dc4_final Project.png")
+```
+
+(ref:captionFig4) Neural activation in subdivision 5 of the central dorsal telencephalon (Dc-5). Females exposed to multimodal stimuli had greater activation compared to females exposed to no stimuli. N = 3 for all groups. Boxes extend to the furthest data points of the first and third quartiles. Data median is represented by a solid line. Whiskers extend to the furthest data point within 1.5x the interquartile range. Outliers beyond 1.5x the interquartile range are represented by solid circles and are not reflective of statistical outliers.
+
+```{r fig4, out.width='70%', fig.cap="(ref:captionFig4)"}
+knitr::include_graphics(path = "C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/Figs/fig4_dc5_Final Report.png")
+```
+
+(ref:captionFig5) Neural activation in the periventricular posterior tuberculum (TPp). Females exposed to multimodal stimuli had greater activation compared to females exposed to unimodal or no stimuli. N = 3 for all groups. Boxes extend to the furthest data points of the first and third quartiles. Data median is represented by a solid line. Whiskers extend to the furthest data point within 1.5x the interquartile range. Outliers beyond 1.5x the interquartile range are represented by solid circles and are not reflective of statistical outliers.
+
+```{r fig5, out.width='70%', fig.cap="(ref:captionFig5)"}
+knitr::include_graphics(path = "C:/Users/Owner/OneDrive - Louisiana State University/Desktop/Biol7800/Project/Figs/fig5_tpp_ray final report.png")
+```
 
 ## Discussion
 
@@ -134,7 +152,7 @@ Different sensory signals from fry resulted in different brain activation patter
 
 In the TPp, females that received multimodal stimuli had greater activation than females that received no stimuli or unimodal stimuli. The TPp has previously been implicated in *A. burtoni* maternal care [@RN18] and is thought to be part of the teleost social decision making network (SDMN) [@RN33]. The social decision making network is made up of the social behavior network and the mesolimbic reward system and contains conserved nuclei that are though to faciliate social behaviors across vertebrates [@RN33]. The TPp is likely homologous to the mammalian ventral tegmental area (VTA) [@RN34]. Dopaminergic cells in the VTA have been implicated in rodent pup retrieval during maternal care [@RN20, @RN22] and dopamine cells are present in the TPp [@RN35], though whether dopamine in the TPp is conserved to faciliate fry retrieval in teleost fish is unkown.
 
-As we continue this experiment, we will continue to collect behavioral and neural activation data from mothers, and collect behavioral and neural activation data from fry that are exposed to the same suite of stimuli from their mothers. As neural activation data from more nuclei are collected, we will perform multivariate analyses (e.g. PCA, differential function analysis) to identify networks of nuclei that are important for *A. burtoni* parent offspring recognition. 
+Because these data are still preliminary, different or clearer trends may emerge as more data is collected. As we continue this experiment, we will continue to collect behavioral and neural activation data from mothers, and collect behavioral and neural activation data from fry that are exposed to the same suite of stimuli from their mothers. As neural activation data from more nuclei are collected, we will perform multivariate analyses (e.g. PCA, differential function analysis) to identify networks of nuclei that are important for *A. burtoni* parent offspring recognition. 
 
 ## Conclusions
 Here, we identify three brain regions implicated in offspring recognition in a model mouthbrooding cichlid fish. To our knowledge, this is the first study to identify the neural mechanisms underlying parent-offspring recognition in a mouthbrooding fish. Because fishes are the oldest and largest group of vertebrates, identifying these mechanisms is important for our understanding of the evolution of parental care across vertebrates. Further, understanding the functions of teleost brain regions can aid in identifying brain homologies between fishes and other vertebrates. Because parental care is critical for species persistence, understanding how it is regulated in a model cichlid species is important for conservation efforts as we can better predict how parental care will be impacted by changing environmental conditions, such as pollution, warming, turbidity, and extreme weather, that may impact cichlids' ability to send and receive sensory signals. 
