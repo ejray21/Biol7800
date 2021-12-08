@@ -1,4 +1,5 @@
-This repository is to document my final project for BIOL 7800: writing a manuscript in R using R markdown. 
+This repository is to document my final project for BIOL 7800. This report focuses on the sensory and neural mechanisms of parent-offspring recognition in a mouthbrooding cichlid fish. All code for analysis, graph and table making, and manuscript writing can be found in this repository.
+
 This repository has the following file folders:
 
 Data: this folder is used to hold raw data and output data.
